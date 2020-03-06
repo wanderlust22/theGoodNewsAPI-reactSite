@@ -8,6 +8,10 @@
 
 _This website explains and allows for the use of the Good News API, an API that connects to a database that is full of positive, hopeful news articles._
 
+### Component Layout
+
+![](src/images/GoodNewsReactSite.png)
+
 ## Setup/Installation Requirements
 
 * _This is a great place_
