@@ -13,7 +13,7 @@ _This website explains and allows for the use of the Good News API, an API that 
 _As of now, The Good News API can be access through the following URL: https://z756etr2ha.execute-api.us-east-2.amazonaws.com/production_
 
 | PATH  | TYPE of REQUEST  | Description of Action |
-|---|---|---|
+|---|---|---|git 
 | "/item"  | GET  | Will return all items in body  |   
 | "/add"  | POST  | Will add a new artcle title to the database  |  
 
