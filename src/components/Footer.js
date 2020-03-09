@@ -9,9 +9,9 @@ export default function Footer() {
     const footerReact = {
         display: 'inline-block',
         width: '100%',
-        right: '1rem',
+        textAlign: 'center',
         bottom: '0',
-        position: 'absolute'
+        position: 'fixed'
     }
     return (
         <footer>
