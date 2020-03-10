@@ -7,7 +7,6 @@ const reactIcon = <FontAwesomeIcon icon={faReact} />;
 
 export default function Footer() {
     const footerReact = {
-        display: 'inline-block',
         width: '100%',
         textAlign: 'center',
         bottom: '0',

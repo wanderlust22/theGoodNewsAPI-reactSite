@@ -22,16 +22,12 @@ export default function GETRequest() {
     }, [get])
 
     const GETStyle = {
-        position: 'absolute',
-        margin: '3rem',
         padding: '10px',
-        marginTop: '10%',
         borderRadius: '10px',
         boxShadow: '0px 5px 20px rgb(71, 71, 71)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minWidth: '90%'
+        gridColumn: '1/4',
+        gridRow: '4'
+        
     }
 
     const buttonStyle = {
@@ -41,24 +37,19 @@ export default function GETRequest() {
     }
 
     const returnStyle = {
-        position: 'absolute',
-        margin: '3rem',
         padding: '10px',
-        marginTop: '20%',
         borderRadius: '10px',
         boxShadow: '0px 5px 20px rgb(71, 71, 71)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minWidth: '90%'
+        gridColumn: '1/4',
+        gridRow: '5'
         
     }
 
     return (
         <div>
             <div style={GETStyle}>
-            <h3>Click on the button below to make a call for a random Good News Article</h3>
-            <button style={buttonStyle} onClick={() => setGet(!get)} >GET request</button>
+                <h3>Click on the button below to make a call for a random Good News Article</h3>
+                <button style={buttonStyle} onClick={() => setGet(!get)} >GET request</button>
             </div>
             <div style={returnStyle}>
                 { random.map(article => <Article key={article.id}
