@@ -8,14 +8,12 @@ const reactIcon = <FontAwesomeIcon icon={faReact} />;
 export default function Footer() {
     const footerReact = {
         textAlign: 'center',
-        bottom: '0',
-        position: 'fixed'
+        gridRow: '8',
+        gridColumn: '1/4'
     }
     return (
-        <footer>
-            <div style={footerReact}>
+        <footer style={footerReact}>
                 <p>Copyright © 2020 by Will Quanstrom under the MIT license powered by {reactIcon}</p>
-            </div>
         </footer>
     )
 }
