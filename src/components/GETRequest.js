@@ -21,12 +21,19 @@ export default function GETRequest() {
         }
     }, [get])
 
+    if (random.length > 0){
+        console.log(random);
+        random.map(article => <Article key={article.id}
+            title={article.title}
+            />)}
+    
     const GETStyle = {
         padding: '10px',
         borderRadius: '10px',
         boxShadow: '0px 5px 20px rgb(71, 71, 71)',
-        gridColumn: '1/4',
-        gridRow: '4'
+        gridColumn: '1',
+        gridRow: '3/5',
+        margin: '5px'
         
     }
 
@@ -36,26 +43,26 @@ export default function GETRequest() {
         marginLeft: '20px'
     }
 
-    const returnStyle = {
-        padding: '10px',
-        borderRadius: '10px',
-        boxShadow: '0px 5px 20px rgb(71, 71, 71)',
-        gridColumn: '1/4',
-        gridRow: '5'
+    // const returnStyle = {
+    //     padding: '10px',
+    //     borderRadius: '10px',
+    //     boxShadow: '0px 5px 20px rgb(71, 71, 71)',
+    //     gridColumn: '1/4',
+    //     gridRow: '5'
         
-    }
+    // }
 
     return (
-        <div>
+        
             <div style={GETStyle}>
                 <h3>Click on the button below to make a call for a random Good News Article</h3>
                 <button style={buttonStyle} onClick={() => setGet(!get)} >GET request</button>
             </div>
-            <div style={returnStyle}>
-                { random.map(article => <Article key={article.id}
-                title={article.title}
-                />)}
-            </div>
-        </div>
+            // <div style={returnStyle}>
+            //     { random.map(article => <Article key={article.id}
+            //     title={article.title}
+            //     />)}
+            // </div>
+        
     )
 }

@@ -7,7 +7,8 @@ export default function Header() {
         borderRadius: '10px',
         boxShadow: '0px 5px 20px rgb(71, 71, 71)',
         gridColumn: '1/4',
-        gridRow: '1'
+        gridRow: '1',
+        margin: '5px'
         
         }
 
