@@ -4,6 +4,8 @@ export default function POSTRequest() {
 
     const [title, setTitle] = useState("");
 
+    const postTo = 'https://z756etr2ha.execute-api.us-east-2.amazonaws.com/production/add';
+
     const setTheTitle = (e) => {
         let newTitle = e.target.value
         setTitle(newTitle);
@@ -13,25 +15,27 @@ export default function POSTRequest() {
     const submitHandler = e => {
         e.preventDefault();
         console.log(title);
+        console.log(JSON.stringify({title: "new title"}));
         makePOST();
     }
 
-    const makePOST = (title) => {
-        const postTo = 'https://z756etr2ha.execute-api.us-east-2.amazonaws.com/production/add';
-        let data = title;
+    const makePOST = () => {
+        let data = {title: "new title"};
         fetch(postTo, {
             method: 'POST',
             headers:{
-                "Content-type" : "application/json",
-                "Accept" : "application/json"
+                "Accept" : "application/json",
+                "Content-type" : "application/json"
             },
-            body : JSON.stringify(data)
+            body : JSON.stringify(data),
         }).then((response) => {
-            response.json().then((res) =>{
-                console.log(res);
-            })
+            response.json()
         })
-
+            .then((response) =>{
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            })
     }
 
     const POSTStyle = {
