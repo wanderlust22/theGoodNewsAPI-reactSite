@@ -2,25 +2,22 @@ import React, { useState } from 'react'
 
 export default function POSTRequest() {
 
-    const [title, setTitle] = useState("");
+    const [theTitle, setTitle] = useState("");
 
     const postTo = 'https://z756etr2ha.execute-api.us-east-2.amazonaws.com/production/add';
 
     const setTheTitle = (e) => {
         let newTitle = e.target.value
         setTitle(newTitle);
-        console.log(title);
     }
 
     const submitHandler = e => {
         e.preventDefault();
-        console.log(title);
-        console.log(JSON.stringify({title: "new title"}));
         makePOST();
     }
 
     const makePOST = () => {
-        let data = {title: "new title"};
+        let data = {title: theTitle};
         fetch(postTo, {
             method: 'POST',
             headers:{
@@ -29,7 +26,7 @@ export default function POSTRequest() {
             },
             body : JSON.stringify(data),
         }).then((response) => {
-            response.json()
+             response = response.json();
         })
             .then((response) =>{
                 console.log(response);

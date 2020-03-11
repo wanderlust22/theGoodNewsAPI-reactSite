@@ -4,15 +4,21 @@ import Article from './Article';
 export default function GETRequest() {
 
     const [get, setGet] = useState(false);
-    const [random, setRandom] = useState([]);
-
+    const [random, setRandom] = useState({});
+    
     const getFrom = 'https://z756etr2ha.execute-api.us-east-2.amazonaws.com/production/item';
 
     const getRequest = async() => {
         const response = await fetch(getFrom);
         const data = await response.json();
-        setRandom(data);
+        let theNumber = Math.floor(Math.random() * data.length);
+        setRandom(data[theNumber]);
         setGet(false);
+    }
+
+    let randoArticle;
+    if (random !== undefined) {
+        randoArticle = <Article key={random.id} title={random.title}/>;
     }
 
     useEffect( () => {
@@ -61,9 +67,7 @@ export default function GETRequest() {
                         <button style={buttonStyle} onClick={() => setGet(!get)} >GET request</button>
                     </div>
                     <div style={twoThirds}>
-                        { random.map(article => <Article key={article.id}
-                        title={article.title}
-                        />)}
+                        { randoArticle }
                     </div>
                 </div>
             </div>
