@@ -7,11 +7,31 @@ export default function POSTRequest() {
     const setTheTitle = (e) => {
         let newTitle = e.target.value
         setTitle(newTitle);
+        console.log(title);
     }
 
     const submitHandler = e => {
         e.preventDefault();
         console.log(title);
+        makePOST();
+    }
+
+    const makePOST = (title) => {
+        const postTo = 'https://z756etr2ha.execute-api.us-east-2.amazonaws.com/production/add';
+        let data = title;
+        fetch(postTo, {
+            method: 'POST',
+            headers:{
+                "Content-type" : "application/json",
+                "Accept" : "application/json"
+            },
+            body : JSON.stringify(data)
+        }).then((response) => {
+            response.json().then((res) =>{
+                console.log(res);
+            })
+        })
+
     }
 
     const POSTStyle = {
@@ -27,7 +47,7 @@ export default function POSTRequest() {
         <div style={POSTStyle}>
             <form onSubmit={(e) => submitHandler(e)}>
                 <div>
-                    <input type="text" name="title" value={title} onChange={(e) => setTheTitle(e)}/>
+                    <input type="text" name="title" onChange={(e) => setTheTitle(e)}/>
                 </div>
                 <button type="submit">POST article</button>
             </form>
